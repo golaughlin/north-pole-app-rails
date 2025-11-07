@@ -1,0 +1,12 @@
+<h1><%= @child.first_name %> <%= @child.last_name %></h1>
+
+<dl>
+  <dt>Date of Birth</dt>
+  <dd><%= @child.date_of_birth %></dd>
+  <dt>Town</dt>
+  <dd><%= @child.town %></dd>
+</dl>
+
+<%= link_to "Back", children_path %>
+<%= link_to "Edit", edit_child_path(@child) %>
+<%= button_to "Delete", @child, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
