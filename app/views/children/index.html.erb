@@ -1,6 +1,6 @@
 <h1>Children</h1>
 
-<%= link_to "Add New Child", new_child_path %>
+<%= link_to "Add New Child", new_child_path if authenticated? %>
 
 <ul id="children">
   <% @children.each do |child| %>

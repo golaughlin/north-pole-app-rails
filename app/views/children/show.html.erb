@@ -8,5 +8,7 @@
 </dl>
 
 <%= link_to "Back", children_path %>
-<%= link_to "Edit", edit_child_path(@child) %>
-<%= button_to "Delete", @child, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% if authenticated? %>
+  <%= link_to "Edit", edit_child_path(@child) %>
+  <%= button_to "Delete", @child, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% end %>
