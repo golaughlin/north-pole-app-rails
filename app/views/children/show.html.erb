@@ -1,16 +1,28 @@
-<% cache @child do %>
-<h1><%= @child.first_name %> <%= @child.last_name %></h1>
-<% end %>
+<div class="flex-wrapper">
+  <% cache @child do %>
+  <div class="card">
+    <h1 class="title"><%= @child.first_name %> <%= @child.last_name %></h1>
+  </div>
+  <% end %>
 
-<dl>
-  <dt>Date of Birth</dt>
-  <dd><%= @child.date_of_birth %></dd>
-  <dt>Town</dt>
-  <dd><%= @child.town %></dd>
-</dl>
+  <div class="card">
+    <dl class="child-info">
+      <div class="child-info__section">
+        <dt class="child-info__label">Date of Birth</dt>
+        <dd class="child-info__data"><%= @child.date_of_birth %></dd>
+      </div>
+      <div class="child-info__section">
+        <dt class="child-info__label">Town</dt>
+        <dd class="child-info__data"><%= @child.town %></dd>
+      </div>
+    </dl>
+  </div>
 
-<%= link_to "Back", children_path %>
-<% if authenticated? %>
-  <%= link_to "Edit", edit_child_path(@child) %>
-  <%= button_to "Delete", @child, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-<% end %>
+  <div class="btn-group">
+    <%= link_to "Back", children_path, class: "btn" %>
+    <% if authenticated? %>
+      <%= link_to "Edit", edit_child_path(@child), class: "btn" %>
+      <%= button_to "Delete", @child, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn--remove" %>
+    <% end %>
+  </div>
+</div>

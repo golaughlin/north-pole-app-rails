@@ -24,10 +24,19 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= link_to "Login", new_session_path unless authenticated? %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+    <nav class="navbar">
+      <div class="navbar__left">
+        <span class="navbar__logo">North Pole Dashboard</span>
+        <ul class="navbar__links">
+          <li class="navbar__link"><%= link_to "Home", root_path %></li>
+        </ul>
+      </div>
+      <div class="navbar__right">
+        <ul class="navbar__auth">
+          <li class="navbar__link"><%= link_to "Login", new_session_path unless authenticated? %></li>
+          <li class="navbar__link"><%= button_to "Log out", session_path, method: :delete if authenticated? %></li>
+        </ul>
+      </div>
     </nav>
     
     <main>
